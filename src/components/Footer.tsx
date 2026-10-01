@@ -40,27 +40,6 @@ export function Footer() {
             </li>
           </ul>
         </div>
-
-        <div className="site-footer__col">
-          <h2>Follow</h2>
-          <ul>
-            {site.socials.map((s) =>
-              s.href ? (
-                <li key={s.label}>
-                  <a href={s.href} rel="noopener" target="_blank">
-                    {s.label}
-                  </a>
-                </li>
-              ) : (
-                <li key={s.label}>
-                  <span className="site-footer__soon">
-                    {s.label} <span className="placeholder">[link]</span>
-                  </span>
-                </li>
-              ),
-            )}
-          </ul>
-        </div>
       </div>
 
       <div className="container-wide site-footer__legal">

@@ -9,7 +9,7 @@
 }
 .site-footer__inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) repeat(3, auto);
+  grid-template-columns: minmax(0, 1.5fr) repeat(2, auto);
   justify-content: space-between;
   gap: clamp(2rem, 4vw, 4rem);
 }
@@ -56,9 +56,6 @@
   width: 18px;
   height: 18px;
   flex: none;
-}
-.site-footer__soon {
-  font-weight: 600;
 }
 .site-footer__legal {
   display: flex;

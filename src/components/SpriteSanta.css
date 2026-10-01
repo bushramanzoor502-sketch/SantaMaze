@@ -1,0 +1,26 @@
+.sprite-santa {
+  width: var(--size);
+  aspect-ratio: 1;
+  background-image: var(--sheet);
+  background-repeat: no-repeat;
+  background-size: 800% 400%;
+  /* Row r of 4 → r/3 of the vertical travel. */
+  background-position: 0% calc(var(--row) * 100% / 3);
+}
+.sprite-santa.is-playing {
+  animation: sprite-frames var(--dur) steps(8) infinite;
+}
+@keyframes sprite-frames {
+  from {
+    background-position-x: 0%;
+  }
+  to {
+    /* 8 frames over 7 steps of travel: 8/7 lands one past the last frame. */
+    background-position-x: calc(800% / 7);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sprite-santa.is-playing {
+    animation: none;
+  }
+}

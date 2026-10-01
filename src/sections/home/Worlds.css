@@ -1,0 +1,272 @@
+.worlds {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  padding: var(--section-y) 0 clamp(2rem, 4vw, 3rem);
+  overflow: hidden;
+  background: var(--navy-900);
+}
+.worlds__backdrops,
+.worlds__backdrop {
+  position: absolute;
+  inset: 0;
+}
+.worlds__backdrops {
+  z-index: -2;
+}
+.worlds__backdrop {
+  opacity: 0;
+  transform: scale(1.08);
+  transition:
+    opacity 1000ms var(--ease-out),
+    transform 6000ms var(--ease-out);
+}
+.worlds__backdrop.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+.worlds__backdrop img {
+  /* The key art has the world's name painted in a banner across its top
+     fifth. The panel already names the world, so the image box is made taller
+     than the section and anchored to the bottom, which pushes the banner out
+     of frame. */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 128%;
+  object-fit: cover;
+  object-position: 50% 100%;
+}
+.worlds__shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, var(--navy-900) 0%, rgba(6, 26, 56, 0.55) 22%, rgba(6, 26, 56, 0.1) 50%, rgba(6, 26, 56, 0.85) 85%, var(--navy-900) 100%),
+    linear-gradient(90deg, rgba(4, 15, 34, 0.85) 0%, rgba(4, 15, 34, 0.35) 45%, transparent 70%);
+}
+
+.worlds__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    'head head'
+    'panel .'
+    'shelf shelf';
+  gap: 1.5rem 3rem;
+}
+.worlds__head {
+  grid-area: head;
+  max-width: 760px;
+}
+.worlds__head h2,
+.worlds__head .lead {
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+}
+
+.worlds__panel {
+  grid-area: panel;
+  align-self: end;
+  max-width: 560px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: var(--radius-l);
+  background: rgba(6, 26, 56, 0.78);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 30px 60px rgba(0, 0, 0, 0.4);
+  animation: panel-in 700ms var(--ease-out) both;
+}
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+.worlds__index {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--accent);
+  filter: brightness(1.25);
+}
+.worlds__name {
+  margin: 0.2rem 0 0.2rem;
+  font-size: clamp(2rem, 1.4rem + 2.4vw, 3.4rem);
+}
+.worlds__subtitle {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--gold-hi);
+}
+.worlds__desc {
+  color: var(--snow-200);
+}
+.worlds__stats {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 1rem 1.5rem;
+  margin: 1.25rem 0 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.worlds__stats dt {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--snow-300);
+}
+.worlds__stats dd {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.2rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+.worlds__meter {
+  display: inline-flex;
+  gap: 3px;
+}
+.worlds__meter i {
+  width: 8px;
+  height: 18px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.worlds__meter i.on {
+  background: var(--gold);
+}
+
+/* The shelf of snow globes */
+.worlds__shelf {
+  grid-area: shelf;
+  position: relative;
+  margin-top: 1rem;
+}
+.worlds__globes {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.5rem, 2vw, 2rem);
+  align-items: end;
+}
+.worlds__plank {
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: 18px;
+  height: 34px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #a8693e, #7a4826);
+  box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.25), 0 18px 30px rgba(0, 0, 0, 0.45);
+}
+.worlds__plank::before {
+  content: '';
+  position: absolute;
+  inset: -10px 1% auto;
+  height: 16px;
+  border-radius: 12px 12px 6px 6px;
+  background: #f4faff;
+}
+.globe {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 0 40px;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  border-radius: var(--radius);
+  -webkit-tap-highlight-color: transparent;
+}
+.globe img {
+  width: min(210px, 100%);
+  height: auto;
+  filter: drop-shadow(0 16px 18px rgba(0, 0, 0, 0.45)) saturate(0.75) brightness(0.85);
+  transform: translateY(0) scale(0.9);
+  transition:
+    transform 600ms var(--ease-out),
+    filter 600ms;
+}
+.globe:hover img {
+  transform: translateY(-8px) scale(0.95) rotate(-2deg);
+  filter: drop-shadow(0 22px 22px rgba(0, 0, 0, 0.45)) saturate(1) brightness(1);
+}
+.globe.is-active img {
+  transform: translateY(-14px) scale(1);
+  filter: drop-shadow(0 0 30px color-mix(in srgb, var(--accent) 55%, transparent)) drop-shadow(0 24px 22px rgba(0, 0, 0, 0.5));
+  animation: globe-wobble 3.2s ease-in-out infinite;
+}
+@keyframes globe-wobble {
+  50% {
+    transform: translateY(-20px) scale(1) rotate(1.5deg);
+  }
+}
+.globe__plate {
+  position: absolute;
+  bottom: 52px;
+  padding: 0.25rem 0.75rem;
+  border-radius: 10px;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(0.7rem, 0.6rem + 0.4vw, 0.95rem);
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 3px 0 var(--ink-line);
+}
+.globe.is-active .globe__plate {
+  background: var(--gold);
+  box-shadow: 0 3px 0 var(--gold-deep);
+}
+
+@media (max-width: 899px) {
+  .worlds__inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'head'
+      'shelf'
+      'panel';
+  }
+  .worlds__panel {
+    max-width: none;
+  }
+}
+/* Phones: globes become a horizontal snap row */
+@media (max-width: 600px) {
+  .worlds__globes {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 1.5rem var(--gutter) 0;
+    margin-inline: calc(var(--gutter) * -1);
+    scrollbar-width: none;
+  }
+  .worlds__globes::-webkit-scrollbar {
+    display: none;
+  }
+  .globe {
+    flex: 0 0 42%;
+    scroll-snap-align: center;
+  }
+  .worlds__plank {
+    left: calc(var(--gutter) * -1);
+    right: calc(var(--gutter) * -1);
+    border-radius: 0;
+  }
+  .worlds__stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  .worlds__stats div:first-child {
+    grid-column: 1 / -1;
+  }
+}

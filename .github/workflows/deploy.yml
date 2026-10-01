@@ -1,0 +1,54 @@
+# CI/CD: every push to main is type-checked, built, prerendered and deployed
+# to GitHub Pages. Pull requests get the same build as a check, without deploying.
+name: Build & Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Typecheck, build and prerender
+        run: npm run build
+        env:
+          # Project site: https://<owner>.github.io/<repo>/
+          # For a custom domain, set BASE_PATH to "/" and VITE_SITE_URL to it.
+          BASE_PATH: /${{ github.event.repository.name }}/
+          VITE_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+      - if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+      - if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

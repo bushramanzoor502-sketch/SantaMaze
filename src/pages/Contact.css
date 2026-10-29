@@ -154,14 +154,6 @@
   margin: 0;
   font-weight: 700;
 }
-.info-card__socials {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0.5rem;
-  font-weight: 700;
-}
 .contact__gift {
   position: absolute;
   right: -10px;

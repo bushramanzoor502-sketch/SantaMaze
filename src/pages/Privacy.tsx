@@ -25,7 +25,7 @@ const sections: Section[] = [
       <>
         <p>
           {site.name} (shown on Android as “{site.storeLabel}”) is a mobile game developed and published by{' '}
-          <P>{site.developer}</P>, based in <P>{site.country}</P> (“we”, “us”, “our”).
+          {site.developer}, based in {site.country} (“we”, “us”, “our”).
         </p>
         <p>
           This Privacy Policy explains what information the game and this website handle, and the choices you have. If
@@ -208,7 +208,7 @@ const sections: Section[] = [
       <>
         <p>Questions or requests about this Privacy Policy can be sent to:</p>
         <address>
-          <P>{site.developer}</P>
+          {site.developer}
           <br />
           <P>[Postal address, if required]</P>
           <br />

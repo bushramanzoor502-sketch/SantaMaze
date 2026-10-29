@@ -44,7 +44,7 @@ export function Footer() {
 
       <div className="container-wide site-footer__legal">
         <p>
-          © {year} <span className="placeholder">{site.developer}</span>. All rights reserved.
+          © {year} {site.developer}. All rights reserved.
         </p>
         <p>
           {site.name} is a game for Android. Google Play and the Google Play logo are trademarks of Google LLC.

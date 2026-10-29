@@ -230,7 +230,7 @@ export default function About() {
               <span className="placeholder">[Add a short note about why you made the game and what you hope players enjoy.]</span>
             </p>
             <p className="about-vision__sig">
-              — <span className="placeholder">{site.developer}</span>
+              — {site.developer}
             </p>
           </aside>
         </div>

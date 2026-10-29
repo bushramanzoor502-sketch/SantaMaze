@@ -1,5 +1,4 @@
-// Site-wide settings. Anything in [brackets] is a placeholder the developer
-// still needs to fill in — the game project does not contain this information.
+// Site-wide settings: names, links and contact details used across every page.
 
 export const site = {
   name: "Santa's Maze Adventure",
@@ -9,15 +8,11 @@ export const site = {
   shortDescription:
     'A cozy Christmas maze game for Android. Guide Santa through four winter worlds, collect every gift to unlock the gate, and race the par time for three stars.',
   email: 'bushramanzoor502@gmail.com',
-  developer: '[Developer Name]',
-  country: '[Country]',
-  /** Set this once the Play Store listing exists. Empty = "Coming soon". */
-  playStoreUrl: '',
-  socials: [
-    { label: 'X (Twitter)', href: '' },
-    { label: 'Instagram', href: '' },
-    { label: 'YouTube', href: '' },
-  ],
+  developer: 'SaleBazar BD',
+  developerUrl: 'https://play.google.com/store/apps/developer?id=SaleBazar+BD',
+  country: 'Bangladesh',
+  /** Built from the game's applicationId. */
+  playStoreUrl: 'https://play.google.com/store/apps/details?id=com.christmas.santa.run.maze.kids',
   privacyLastUpdated: 'October 1, 2026',
 } as const;
 

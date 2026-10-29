@@ -173,34 +173,15 @@ export default function Contact() {
             <dl>
               <dt>Studio</dt>
               <dd>
-                <span className="placeholder">{site.developer}</span>
+                <a href={site.developerUrl} rel="noopener" target="_blank">
+                  {site.developer}
+                </a>
               </dd>
               <dt>Location</dt>
-              <dd>
-                <span className="placeholder">{site.country}</span>
-              </dd>
+              <dd>{site.country}</dd>
               <dt>Platform</dt>
               <dd>Android</dd>
             </dl>
-          </div>
-
-          <div className="info-card">
-            <h2>Follow</h2>
-            <ul className="info-card__socials">
-              {site.socials.map((s) => (
-                <li key={s.label}>
-                  {s.href ? (
-                    <a href={s.href} rel="noopener" target="_blank">
-                      {s.label}
-                    </a>
-                  ) : (
-                    <>
-                      {s.label} <span className="placeholder">[link]</span>
-                    </>
-                  )}
-                </li>
-              ))}
-            </ul>
           </div>
 
           <img className="contact__gift" src={asset('objects/gift-green.webp')} alt="" width="256" height="256" loading="lazy" />

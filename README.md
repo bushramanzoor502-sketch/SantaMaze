@@ -17,16 +17,15 @@ and is readable without JavaScript.
 | `npm run preview` | Serve the production build |
 | `npm run assets` | Re-import art from the game project (see below) |
 
-## Before going live
+## Site details
 
 All site-wide details live in **`src/data/site.ts`**:
 
-- `developer`, `country` — currently `[placeholders]`, shown highlighted on the site
-- `playStoreUrl` — while empty, the store button reads "Coming soon to Google Play"
-- `socials` — add links to replace the `[link]` placeholders
+- `developer`, `developerUrl`, `country` — the studio shown on Contact, About, Privacy and the footer
+- `playStoreUrl` — the Google Play listing every "Get it on Google Play" button links to
 - `email` — the contact/support address used across the site
 
-Also update:
+Still to fill in:
 
 - `.env` → `VITE_SITE_URL`, used for canonical and Open Graph URLs (the GitHub
   workflow sets this automatically for `<owner>.github.io/<repo>`)

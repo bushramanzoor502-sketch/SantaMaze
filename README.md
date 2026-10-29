@@ -4,8 +4,8 @@ The website for **Santa's Maze Adventure**, a Christmas maze game for Android.
 Four pages: Home, About, Privacy Policy and Contact Us.
 
 Built with Vite, React and TypeScript, with a lazy-loaded three.js hero scene.
-Every page is prerendered to static HTML at build time, so it works on GitHub Pages
-and is readable without JavaScript.
+Every page is prerendered to static HTML at build time, so it works on any static host
+(it is hosted on Netlify) and is readable without JavaScript.
 
 ## Commands
 
@@ -27,17 +27,14 @@ All site-wide details live in **`src/data/site.ts`**:
 
 Still to fill in:
 
-- `.env` → `VITE_SITE_URL`, used for canonical and Open Graph URLs (the GitHub
-  workflow sets this automatically for `<owner>.github.io/<repo>`)
-- `src/pages/About.tsx` → the "note from the developer" placeholder
-- `src/pages/Privacy.tsx` → postal address placeholder, and review the policy if the
-  game ever adds online services (analytics, ads, cloud saves…)
+- `src/pages/Privacy.tsx` → postal address placeholder. Review the policy whenever the
+  game adds or removes a service (it currently covers Firebase Analytics, Crashlytics
+  and Cloud Messaging).
 
-## Live site & automatic deployment
+## Hosting & automatic deployment
 
-**Live:** https://bushramanzoor502-sketch.github.io/SantaMaze/
-
-Deployment is fully automatic (`.github/workflows/deploy.yml`):
+The site is hosted on **Netlify**, which builds and publishes it on every push to
+`main` using `netlify.toml` (build command `npm run build`, publish folder `dist`).
 
 1. Edit anything — copy in `src/data/`, a page, styles, images in `public/`.
 2. Commit and push to `main`:
@@ -46,17 +43,12 @@ Deployment is fully automatic (`.github/workflows/deploy.yml`):
    git commit -m "Describe your change"
    git push
    ```
-3. GitHub Actions typechecks, builds and prerenders all four pages, then publishes
-   them. The site updates in about a minute — follow progress under the repo's
-   **Actions** tab. If the build fails (e.g. a type error), nothing is published and
-   the live site stays as it was.
+3. Netlify typechecks, builds and prerenders all four pages, then publishes them.
+   If the build fails (e.g. a type error), nothing is published and the live site
+   stays as it was.
 
-Pull requests to `main` run the same build as a check without deploying.
-Links and asset paths adapt to the repository name automatically, so no page needs
-editing for deployment.
-
-**One-time setup:** in the repository, open **Settings → Pages → Build and deployment**
-and set **Source** to **GitHub Actions**.
+Netlify passes the site address as `$URL`, which becomes `VITE_SITE_URL` for the
+canonical, Open Graph and sitemap links.
 
 ## Game art
 

@@ -221,13 +221,15 @@ export default function About() {
               <li>Hand-tuned difficulty curve for each world</li>
               <li>Snowfall, footstep trails and particle effects</li>
               <li>Designed for landscape play, full-screen and edge to edge</li>
-              <li>Fully offline — no account, no ads, no internet connection required</li>
+              <li>Plays offline — no account and no ads</li>
             </ul>
           </div>
           <aside className="clay-panel about-vision on-cream reveal" aria-labelledby="vision-title">
             <h3 id="vision-title">A note from the developer</h3>
             <p>
-              <span className="placeholder">[Add a short note about why you made the game and what you hope players enjoy.]</span>
+              We made {site.name} to be a calm little escape for the holidays — no enemies, no game over and nothing
+              to buy, just Santa, a sack of gifts and a maze to solve. We hope it brings some Christmas cheer to your
+              day, and we would love to hear what you think.
             </p>
             <p className="about-vision__sig">
               — {site.developer}

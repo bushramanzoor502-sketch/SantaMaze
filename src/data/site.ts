@@ -3,7 +3,7 @@
 export const site = {
   name: "Santa's Maze Adventure",
   /** The label the app shows under its icon on Android. */
-  storeLabel: "Santa's Adventure",
+  storeLabel: 'Labyrinth Kids Maze: Christmas',
   tagline: 'Collect every gift. Unlock the gate.',
   shortDescription:
     'A cozy Christmas maze game for Android. Guide Santa through four winter worlds, collect every gift to unlock the gate, and race the par time for three stars.',
@@ -13,7 +13,7 @@ export const site = {
   country: 'Bangladesh',
   /** Built from the game's applicationId. */
   playStoreUrl: 'https://play.google.com/store/apps/details?id=com.christmas.santa.run.maze.kids',
-  privacyLastUpdated: 'October 1, 2026',
+  privacyLastUpdated: 'October 29, 2026',
 } as const;
 
 export const nav = [

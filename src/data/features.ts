@@ -45,8 +45,8 @@ export const features: Feature[] = [
   {
     id: 'offline',
     kicker: 'Play anywhere',
-    title: 'Offline. No ads.',
-    body: 'The game needs no internet connection and shows no ads. Your progress, gifts and settings are saved on your device.',
+    title: 'Plays offline. No ads.',
+    body: 'The game needs no internet connection to play and shows no ads. Your progress, gifts and settings are saved on your device.',
     image: 'maps/snowy-village',
     alt: 'Top-down view of a Snowy Village maze with lanterns, gifts and Christmas trees',
   },

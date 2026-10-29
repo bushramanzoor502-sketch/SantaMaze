@@ -11,7 +11,7 @@ const SUBJECTS = ['General question', 'Game support', 'Bug report', 'Feedback & 
 const FAQ = [
   {
     q: 'Does the game need an internet connection?',
-    a: 'No. The game works completely offline and doesn’t use the internet at all.',
+    a: 'No. The game is fully playable offline. When you are online it sends usage and crash reports through Firebase to help us improve it, and it can receive game notifications.',
   },
   {
     q: 'Are there ads or in-app purchases?',
@@ -131,7 +131,7 @@ export default function Contact() {
               <label htmlFor="device">
                 Device &amp; Android version <span className="field__opt">(optional, helps with bugs)</span>
               </label>
-              <input id="device" name="device" type="text" placeholder="e.g. Pixel 7, Android 15" />
+              <input id="device" name="device" type="text" />
             </div>
             <div className="field field--full">
               <label htmlFor="message">Message</label>

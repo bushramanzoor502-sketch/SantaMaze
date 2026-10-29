@@ -2,8 +2,8 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'node:path';
 
-// BASE_PATH is set by the GitHub Pages workflow (e.g. "/SantaMazeWeb/").
-// Locally the site is served from the root.
+// BASE_PATH can serve the site from a sub-folder (e.g. "/SantaMaze/").
+// By default (locally and on Netlify) it is served from the root.
 export default defineConfig({
   base: process.env.BASE_PATH ?? '/',
   plugins: [react()],

@@ -1,0 +1,9 @@
+# Netlify builds and publishes the site on every push to main.
+# $URL is the site's primary address, set by Netlify; it feeds the canonical,
+# Open Graph and sitemap URLs.
+[build]
+  command = "VITE_SITE_URL=$URL npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "24"

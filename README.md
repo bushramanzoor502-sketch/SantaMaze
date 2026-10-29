@@ -25,11 +25,8 @@ All site-wide details live in **`src/data/site.ts`**:
 - `playStoreUrl` — the Google Play listing every "Get it on Google Play" button links to
 - `email` — the contact/support address used across the site
 
-Still to fill in:
-
-- `src/pages/Privacy.tsx` → postal address placeholder. Review the policy whenever the
-  game adds or removes a service (it currently covers Firebase Analytics, Crashlytics
-  and Cloud Messaging).
+Review `src/pages/Privacy.tsx` whenever the game adds or removes a service (it
+currently covers Firebase Analytics, Crashlytics and Cloud Messaging).
 
 ## Hosting & automatic deployment
 

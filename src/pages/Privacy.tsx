@@ -5,7 +5,6 @@ import { site } from '../data/site';
 import { asset, pageHref } from '../lib/env';
 import './Legal.css';
 
-const P = ({ children }: { children: ReactNode }) => <span className="placeholder">{children}</span>;
 const Mail = () => <a href={`mailto:${site.email}`}>{site.email}</a>;
 
 interface Section {
@@ -263,9 +262,7 @@ const sections: Section[] = [
       <>
         <p>Questions or requests about this Privacy Policy can be sent to:</p>
         <address>
-          {site.developer}
-          <br />
-          <P>[Postal address, if required]</P>
+          {site.developer}, {site.country}
           <br />
           Email: <Mail />
         </address>
@@ -334,11 +331,6 @@ export default function Privacy() {
               {s.body}
             </section>
           ))}
-
-          <p className="legal__note">
-            Highlighted items in <span className="placeholder">[brackets]</span> are placeholders that will be replaced
-            with the developer’s details.
-          </p>
         </article>
       </div>
     </Layout>
